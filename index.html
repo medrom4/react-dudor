@@ -18,12 +18,25 @@
     <script type="text/babel">
         class Block extends React.Component {
             render() {
-                return ( <h3>itProger</h3> ); 
+                return (
+                    <div>
+                        <h3>itProger</h3>
+                        <p>Это простой текст</p>
+                    </div>
+                ); 
             }
         }
 
+        const place = document.getElementById("example");
+
         ReactDOM.render (
-        <Block />, document.getElementById("example"));
+        <div>    
+            <Block />
+            <Block />
+            <Block />
+        </div>,   
+        place
+        );
     </script>
 </body>
 
