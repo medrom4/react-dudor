@@ -13,30 +13,30 @@
 
 <body>
 
-    <div id="example"></div>
-  
+    <div id="program"></div>
+
     <script type="text/babel">
-        class Block extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <h3>itProger</h3>
-                        <p>Это простой текст</p>
-                    </div>
-                ); 
-            }
+        
+    class Game extends React.Component {
+        render () {
+            return (
+            <div>
+                <h3>{this.props.name}</h3>
+                <h5>{this.props.age}</h5>
+            </div>
+            );
         }
+    };
 
-        const place = document.getElementById("example");
-
+        const app = document.getElementById("program");
+        
         ReactDOM.render (
-        <div>    
-            <Block />
-            <Block />
-            <Block />
-        </div>,   
-        place
-        );
+            <div>
+                <Game name="Forza" age="18+" />
+                <Game name="Mortal Combat" age="17+" />
+                <Game name="GTA 5" age="12+" />
+            </div>
+            , app );
     </script>
 </body>
 
