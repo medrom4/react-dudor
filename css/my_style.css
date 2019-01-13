@@ -33,6 +33,17 @@ button.btn {
     font-size: 0.65em;
     color: #fff;
     outline: none;
+    background-color: #00FF00;
+}
+
+button.success {
+    margin-right: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 0.65em;
+    color: #fff;
+    outline: none;
 }
 
 .btn.light {
@@ -53,4 +64,8 @@ button.btn {
 .btn.red:hover {
     background-color: #b6821a;
     border-color: #946912;
+}
+
+button.btn:hover {
+    background-color: #3CB371;
 }

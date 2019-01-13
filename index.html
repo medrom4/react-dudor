@@ -18,44 +18,64 @@
 
     <script type="text/babel">
 
-        class Check extends React.Component {
+        class Task extends React.Component {
 
             constructor(props) {
                 super(props);
                 this.state = {
-                    checked: true,
+                    edit: false,
                 };
             };
 
-            handleCheck = () => {
-                this.setState({
-                    checked: !this.state.checked
-                });
+            edit = () => {
+                this.setState ({edit: true})
+            };
+
+            remove() {
+                alert ("Нажата кнопка удалить");
+            };
+
+            save = () => {
+                this.setState ({edit: false})
+            };
+
+            rendNorm = () => {
+                return (
+                    <div className="box">
+                        <div className="text">{this.props.children}</div>
+                        <button onClick={this.edit} className="btn light">Редактировать</button>
+                        <button onClick={this.remove} className="btn red">Удалить</button>
+                    </div>
+                );
+            };
+
+            rendEdit = () => {
+                return (
+                    <div className="box">
+                        <textarea defaultValue={this.props.children}></textarea>
+                        <button onClick={this.save} className="btn success">Save</button>
+                    </div>
+                );
             };
 
             render() {
-                var message;
-
-                if (this.state.checked) {
-                    message = 'выбран!';
+                if (this.state.edit) {
+                    return this.rendEdit();
                 } else {
-                    message = 'не выбран!';
+                    return this.rendNorm();
                 }
-
-                return (
-                    <div>
-                        <input type="checkbox" onChange={this.handleCheck} defaultChecked={this.state.checked} />
-                        <p>Чекбокс {message}</p>
-                    </div>
-                );
             }
         }
 
         const app = document.getElementById("program");
 
         ReactDOM.render (
-            <Check />
-            , app );
+            <div className='field'>
+                <Task>Hey, my friend!</Task>
+                <Task>Task? №2</Task>
+                <Task>Hello WoRlD</Task>
+            </div>
+        , app );
     </script>
 </body>
 
