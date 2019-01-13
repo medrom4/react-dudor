@@ -6,6 +6,7 @@
     <title>Hello World</title>
     <script src="js/react.js"></script>
     <script src="js/react-dom.js"></script>
+    <link rel="stylesheet" href="css/my_style.css" />
 
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
@@ -16,25 +17,34 @@
     <div id="program"></div>
 
     <script type="text/babel">
-        
-    class Game extends React.Component {
-        render () {
+
+        class Task extends React.Component {
+        edit() {
+            alert ('Нажата кнопка редактировать!');
+        };
+
+        remove() {
+            alert('Нажата кнопка удалить!');
+        };
+
+        render() {
             return (
-            <div>
-                <h3>{this.props.name}</h3>
-                <h5>{this.props.age}</h5>
-            </div>
+                <div className="box">
+                    <div className="text">{this.props.children}</div>
+                    <button onClick={this.edit} className="btn light">Редактировать</button>
+                    <button onClick={this.remove} className="btn red">Удалить</button>
+                </div>
             );
         }
     };
 
         const app = document.getElementById("program");
-        
+
         ReactDOM.render (
-            <div>
-                <Game name="Forza" age="18+" />
-                <Game name="Mortal Combat" age="17+" />
-                <Game name="GTA 5" age="12+" />
+            <div className="field">
+                <Task>Hey, it is me!</Task>
+                <Task>Task number 2</Task>
+                <Task>Hello WoRlD!</Task>
             </div>
             , app );
     </script>
