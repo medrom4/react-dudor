@@ -36,6 +36,8 @@
             };
 
             save = () => {
+				var value = this.refs.newTxt.value;
+				alert(value);
                 this.setState ({edit: false})
             };
 
@@ -52,7 +54,7 @@
             rendEdit = () => {
                 return (
                     <div className="box">
-                        <textarea defaultValue={this.props.children}></textarea>
+                        <textarea ref="newTxt" defaultValue={this.props.children}></textarea>
                         <button onClick={this.save} className="btn success">Save</button>
                     </div>
                 );
@@ -72,7 +74,7 @@
         ReactDOM.render (
             <div className='field'>
                 <Task>Hey, my friend!</Task>
-                <Task>Task? №2</Task>
+                <Task>Task: №2</Task>
                 <Task>Hello WoRlD</Task>
             </div>
         , app );
