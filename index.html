@@ -69,14 +69,36 @@
             }
         }
 
+		class Field extends React.Component {
+			constructor(props) {
+                super(props);
+                this.state = {
+                    tasks: [
+						'Необходимо купить молоко',
+						'Почисти картошку',
+						'Теперь отдохни!'
+					]
+                };
+            };
+			
+			render() {
+                return (
+					<div className='field'>
+                		{
+							this.state.tasks.map(function(item, i)	{
+												 	return (<Task key={i}>{item}</Task>);
+												 })				
+						}
+            		</div>
+				)
+            };
+		}
+			
+			
         const app = document.getElementById("program");
 
         ReactDOM.render (
-            <div className='field'>
-                <Task>Hey, my friend!</Task>
-                <Task>Task: №2</Task>
-                <Task>Hello WoRlD</Task>
-            </div>
+            <Field />
         , app );
     </script>
 </body>
