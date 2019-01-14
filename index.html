@@ -32,12 +32,11 @@
             };
 
             remove() {
-                alert ("Нажата кнопка удалить");
+				this.props.deleteBlock(this.props.index);
             };
 
             save = () => {
-				var value = this.refs.newTxt.value;
-				alert(value);
+				this.props.update(this.refs.newTxt.value, this.props.index);
                 this.setState ({edit: false})
             };
 
@@ -45,8 +44,11 @@
                 return (
                     <div className="box">
                         <div className="text">{this.props.children}</div>
-                        <button onClick={this.edit} className="btn light">Редактировать</button>
-                        <button onClick={this.remove} className="btn red">Удалить</button>
+                        <button onClick = {this.edit} className="btn light">Редактировать</button>
+                        <button onClick = { () => {
+								this.props.deleteBlock(this.props.index)
+							}
+						} className="btn red">Удалить</button>
                     </div>
                 );
             };
@@ -95,7 +97,7 @@
 			
 			eachTask = (item, i) => {
 				return (
-					<Task key={i} index={i}>
+					<Task key={i} index={i} update={this.updateText} deleteBlock={this.deleteBlock}>
 						{item}
 					</Task>
 				);
