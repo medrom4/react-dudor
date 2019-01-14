@@ -75,13 +75,15 @@
 			constructor(props) {
                 super(props);
                 this.state = {
-                    tasks: [
-						'Необходимо купить молоко',
-						'Почисти картошку',
-						'Теперь отдохни!'
-					]
+                    tasks: []
                 }
             };
+			
+			add = (text) => {
+				var arr = this.state.tasks;
+				arr.push(text);
+				this.setState({tasks: arr});
+			};
 			
 			deleteBlock = (i) => {
 				var arr = this.state.tasks;
@@ -106,9 +108,8 @@
 			render() {
                 return (
 					<div className='field'>
-                		{
-							this.state.tasks.map(this.eachTask)
-						}
+               			<button onClick = {this.add.bind(null, 'Твой текст')} className="btn new">Новое задание</button>
+                		{this.state.tasks.map(this.eachTask)}
             		</div>
 				)
             };

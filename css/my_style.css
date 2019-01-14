@@ -29,6 +29,7 @@ button.btn {
     margin-right: 10px;
     padding: 10px;
     margin-top: 10px;
+	margin-bottom: 10px;
     cursor: pointer;
     font-size: 0.65em;
     color: #fff;
@@ -56,6 +57,11 @@ button.success {
     border: 2px solid #b6821a;
 }
 
+.btn.new {
+    background-color: #D2691E;
+    border: 2px solid #2a89a2;
+}
+
 .btn.light:hover {
     background-color: #2a89a2;
     border-color: #1d6f85;
@@ -68,4 +74,8 @@ button.success {
 
 button.btn:hover {
     background-color: #3CB371;
+}
+
+.btn.new:hover {
+    background-color: #FFA07A;
 }
